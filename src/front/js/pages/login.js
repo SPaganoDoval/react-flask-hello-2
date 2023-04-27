@@ -2,25 +2,22 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/register.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export const Register = () => {
+export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    actions.register(email, password);
-    navigate("/login");
+    actions.login(email, password);
   };
 
   return (
     <div className="text-center mt-5">
       <div className="register-form">
-        <h2> Register </h2>{" "}
+        <h2> Login </h2>{" "}
         <form onSubmit={handleSubmit}>
           <label htmlFor="email"> Email </label>{" "}
           <input
@@ -36,7 +33,10 @@ export const Register = () => {
             required
             onChange={(event) => setPassword(event.target.value)}
           />{" "}
-          <button type="submit"> Register </button>{" "}
+          <button type="submit"> Login </button>{" "}
+          <Link to="/Register">
+            <span>Si no estas registrado hace click aquí</span>
+          </Link>
         </form>{" "}
       </div>{" "}
     </div>

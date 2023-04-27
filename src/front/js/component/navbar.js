@@ -12,7 +12,10 @@ export const Navbar = () => {
     
     <ul className="nav no-search">
       <li className="nav-item"><a href="#">Home</a></li>
-      <li className="nav-item"><a href="#">Registro/Login</a></li>
+	  <Link to="/Login">
+      <li className="nav-item"><a href="#">Registro/Login</a>
+	  </li>
+      </Link>
       <li className="nav-item"><a href="#">Logout</a></li>
       
 	</ul>
